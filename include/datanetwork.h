@@ -32,6 +32,8 @@
 #include "datanode.h"
 #include "minibee.h"
 
+#include "callback.hpp"
+
 namespace SWDataNetwork {
 
 typedef std::map<int, DataNode*> nodeMap;
@@ -81,9 +83,6 @@ public:
 	void debug( bool onoff );
 	
 	void quit();
-	void setQuitFunction( void (*quitFunc)() );
-	
-
 
 // ------- END - use in client ------
 
@@ -122,13 +121,12 @@ public:
 
 	DataNetworkOSC * osc;
 
+	cb::Callback0<void> quitCallback;
+
 private:
 	nodeMap dataNodes;
 	beeMap miniBees;
 
-	void (*quitFunction)();// = NULL;
-
-	
 	void addNode( int id, const char *label  = "" );
 	bool nodeExists( int id );
 	void removeNodeFromMap( int id );

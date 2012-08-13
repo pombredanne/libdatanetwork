@@ -34,8 +34,7 @@ DataNetwork::DataNetwork( )
 
 	osc = NULL;
 	
-	void (*quitFunction)() = NULL;
-
+	quitCallback.Reset();
 }
 
 /**  create an osc client interface for it: */
@@ -383,13 +382,9 @@ void DataNetwork::setRegistered( bool reg )
 	A quit request from the host
 */
 void DataNetwork::quit(){
-  if ( this->quitFunction != NULL ){
-    this->quitFunction();
+  if (quitCallback.IsSet()){
+    quitCallback();
   }
-}
-
-void DataNetwork::setQuitFunction( void (*quitFunc)(void) ){
-    quitFunction = quitFunc;
 }
 
 /**

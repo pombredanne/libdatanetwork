@@ -55,7 +55,7 @@ def LookForPackage( context, name ):
 
 print "\n=============== " + PACKAGE + ' v' + VERSION + " ================="
 print "=========== (c) 2009 - Marije Baalman ============== "
-print "=========== http://sensestage.hexagram.ca ==========\n"
+print "=========== http://docs.sensestage.eu ==========\n"
 # Read options from the commandline
 opts = Variables(None, ARGUMENTS)
 opts.AddVariables(
@@ -116,6 +116,7 @@ src/oscin.cpp
 ''')
 
 HEADERFILES = Split('''
+include/callback.hpp
 include/datanetwork.h
 include/datanetworkosc.h
 include/datanode.h

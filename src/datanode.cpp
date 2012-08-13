@@ -65,11 +65,22 @@ string * DataNode::getStringData()
 */
 void DataNode::setData( int size, float * indata )
 {
+<<<<<<< HEAD
 	for ( int i=0; i<size; i++ ){
 		data[i] = indata[i];
 		dataSlots[i].setValue( indata[i] );
 // 		printf( "setData %i, %f\n", i, data[i] );
 	}
+=======
+  if ( data == NULL ) {
+    setNoSlots( size );
+  }
+  for ( int i=0; i<size; i++ ){
+    data[i] = indata[i];
+    dataSlots[i].setValue( indata[i] );
+  // 		printf( "setData %i, %f\n", i, data[i] );
+  }
+>>>>>>> 1b99bdc38e3abfe4c7523ef7d5f8d2d0351e0554
   if ( nodeCallback.IsSet() ){
     nodeCallback( this );
   }
@@ -81,10 +92,20 @@ void DataNode::setData( int size, float * indata )
 */
 void DataNode::setData( int size, string * indata )
 {
+<<<<<<< HEAD
 	for ( int i=0; i<size; i++ ){
 		stringData[i] = indata[i];
 		dataSlots[i].setValue( indata[i] );
 	}
+=======
+  if ( stringData == NULL ) {
+    setNoSlots( size );
+  }
+  for ( int i=0; i<size; i++ ){
+    stringData[i] = indata[i];
+    dataSlots[i].setValue( indata[i] );
+  }
+>>>>>>> 1b99bdc38e3abfe4c7523ef7d5f8d2d0351e0554
   if ( nodeCallback.IsSet() ){
     nodeCallback( this );
   }
